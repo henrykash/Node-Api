@@ -8,3 +8,4 @@ module.exports = {
         PRODUCT_CREATED: 'Product Created Succesfully'
     }
 }
+console.log('hello world');
