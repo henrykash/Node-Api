@@ -7,5 +7,7 @@ const productSchema = require('../apiSchema/productSchema');
 router.post('/', joiSchemaValidation.validateBody(productSchema.createProductSchema), 
 productController.createProduct);
 
-router.get('/', productController.getAllProducts)
+router.get('/', joiSchemaValidation.validateQuerryParams(productSchema.get),
+productController.getAllProducts)
+
 module.exports = router;
