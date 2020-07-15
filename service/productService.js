@@ -12,3 +12,15 @@ module.exports.createProduct = async (serviceData) => {
   }
 
 }
+
+module.exports.getAllProducts = async (serviceData) => {
+  try { 
+    //inserting data to db
+     let products = await Product.find({});
+     return products;
+   } catch(error){
+     console.log('something went wrong: service: getAllProducts', error);
+     throw new Error(error)
+   }
+ 
+ }

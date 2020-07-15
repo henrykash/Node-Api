@@ -11,9 +11,22 @@ module.exports.createProduct = async (req, res) => {
 
      } catch(error){
       console.log('something went wring: Controller: createProduct', error);
-  // response.status = 400;
+  
         response.message = error.message;
-    //    response.body = {};
+    
   }
      return res.status(response.status).send(response);
+}
+module.exports.getAllProducts = async (req, res) => {
+  let response = { ...constants.defaultServerResponse };
+  try {
+    const responseFromService = await productService.getAllProducts();
+    response.status = 200;
+    response.message = constants.productMessage.PRODUCT_FETCHED;
+    response.body = responseFromService;
+  } catch (error) {
+    console.log('Something went wrong: Controller: getAllProducts', error);
+    response.message = error.message;
+  }
+  return res.status(response.status).send(response);
 }
