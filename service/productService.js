@@ -1,5 +1,5 @@
 const Product = require('../database/models/productModel');
-const {formatMongoData} = require('../helper/bdHelper');
+const {formatMongoData} = require('../helper/dbHelper');
 module.exports.createProduct = async (serviceData) => {
  try { 
    //inserting data to db

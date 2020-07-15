@@ -1,5 +1,5 @@
-//const mongoose = require('mongoose');
-//const constants = require('../constants');
+const mongoose = require('mongoose');
+const constants = require('../constants');
 
 module.exports.formatMongoData = (data) => {
   if (Array.isArray(data)) {
