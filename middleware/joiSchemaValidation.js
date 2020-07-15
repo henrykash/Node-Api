@@ -2,9 +2,9 @@ const Joi = require('@hapi/joi');
 const constants = require('../constants');
 
 const validateObjectSchema = (data, schema) => {
-  const result = Joi.validate(data, schema, {convert: false});
+  const result = Joi.valid(data, schema, {convert: false});
   if(result.error){
-    const errorDetails = result.error.details.map(value => {
+   const errorDetails = result.error.details.map(value => {
         return {
              error: value.message,
              path: value.path
@@ -12,6 +12,7 @@ const validateObjectSchema = (data, schema) => {
     });
     return errorDetails;
   }
+  
      return null;  
 }
 
