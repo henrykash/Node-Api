@@ -1,6 +1,7 @@
 const Joi = require('@hapi/joi');
 
-const validateObjectSchema = (data, schema) => {
+const validateObjectSchema = (undefined, data, schema) => {
+  const result = Joi.validate(undefined, data, schema, {convert: false});
   console.log('Joi schema validation Result===', result);
 }
 
