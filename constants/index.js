@@ -6,6 +6,8 @@ module.exports = {
     },
     productMessage: {
         PRODUCT_CREATED: 'Product Created Succesfully'
+    },
+    requestValidationMessage: {
+        BAD_REQUEST: 'Invalid fields'
     }
 }
-console.log('hello world');

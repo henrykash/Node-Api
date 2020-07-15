@@ -1,4 +1,5 @@
 const Joi = require('@hapi/joi');
+const constants = require('../constants');
 
 const validateObjectSchema = (data, schema) => {
   const result = Joi.validate(data, schema, {convert: false});
@@ -11,12 +12,17 @@ const validateObjectSchema = (data, schema) => {
     });
     return errorDetails;
   }
-     return null;
-    console.log('errorDetails ===', result.error.details);
+     return null;  
 }
 
 module.exports.validateBody = (schema) => {
     return(req, res, next) =>{
+        let response = {...constants.defaultServiceResponse};
         validateObjectSchema(req.body, schema);
+        if(error){
+            response.body = error;
+            return res.status(response.status).send(response);
+        }
+        return next();
     }
 }
