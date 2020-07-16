@@ -11,6 +11,12 @@ productController.createProduct);
 router.get('/:id',
   productController.getProductById
 );
+
+router.put('/:id',
+  joiSchemaValidation.validateBody(productSchema.updateProductSchema),
+  productController.updateProduct
+);
+
 router.get('/',
  joiSchemaValidation.validateQuerryParams(productSchema.getAllProductSchema),
 productController.getAllProducts)
