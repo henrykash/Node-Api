@@ -20,6 +20,9 @@ app.use(express.urlencoded({extended: true}));
 //create a route to handle product api
 app.use('/api/v1/product', require('./routes/productRoutes'));
 
+//create a route to handle userSingup API
+app.use('/api/v1/user', require('./routes/userRoutes'));
+
 app.get('/', (req, res, next) =>{
     res.send('hello world from kash');
 });
